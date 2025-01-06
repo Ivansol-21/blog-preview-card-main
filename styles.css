@@ -56,8 +56,9 @@ span {
 .titulo {
     font-size: var(--font-size-preset-1);
     font-weight: var(--figtree-extra-bold);
-    color: var(--gray-950);
+    color: inherit;
     line-height: var(--line-height);
+    transition: all 0.1s ease-out;
 }
 .texto-principal {
     font-size: var(--font-size-preset-2);
@@ -66,6 +67,7 @@ span {
     line-height: var(--line-height);
 }
 .item {
+    position: relative;
     background-color: var(--blanco);
     padding: var(--spacing-1);
     border-radius: 20px;
@@ -74,15 +76,37 @@ span {
     justify-content: center;
     gap: var(--spacing-1);
     max-width: 384px;
+    color: var(--gray-950);
+    /* border: 1px solid var(--gray-950); */
+    box-shadow: 8px 8px 0px 0px #000;
+    transition: all 0.2s ease;
+}
+.item::after {
+    content: '';
+    position: absolute;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 0 1px #000;
+    pointer-events: none;
+}
+.item:hover {
+    box-shadow: 13px 13px 0px 0px #000;
+    cursor: pointer;
+    color: var(--amarillo);
 }
 .imagen {
-    max-width: 100%;
-    max-height: 200px;
+    max-width: 336px;
+    height: 200px;
+    border-radius: 10px;
 }
 .imagen-ancho {
     width: 100%;
-    max-height: 200px;
+    height: 100%;
     border-radius: 10px;
+    object-fit: cover;
 }
 .detalles {
     display: flex;
@@ -90,6 +114,7 @@ span {
     justify-content: center;
     align-items: start;
     gap: var(--spacing-2);
+    color: inherit;
 }
 .autor {
     display: flex;
